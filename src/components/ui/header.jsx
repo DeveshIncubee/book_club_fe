@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <header className="rounded-full bg-gray-200 my-4 px-4 py-2 flex justify-between items-center">
       <Link href="/">
-        <p className="font-mono text-2xl">Book Club</p>
+        <p className="text-2xl">Book Club</p>
       </Link>
 
       <div className="flex space-x-4 items-center">

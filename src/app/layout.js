@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Provider>
-          <main className="font-sans mx-auto container">
+          <main className="font-mono mx-auto container">
             <Header />
             {children}
           </main>
