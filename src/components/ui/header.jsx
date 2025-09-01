@@ -15,13 +15,13 @@ export default function Header() {
       <div className="flex space-x-4 items-center">
         <Link
           href="/books"
-          className={`${pathname.includes("/books") ? "font-bold" : ""} text-xl hover:underline`}
+          className={`${pathname?.includes("/books") ? "font-bold" : ""} text-xl hover:underline`}
         >
           Books
         </Link>
         <Link
           href="/events"
-          className={`${pathname.includes("/events") ? "font-bold" : ""} text-xl hover:underline`}
+          className={`${pathname?.includes("/events") ? "font-bold" : ""} text-xl hover:underline`}
         >
           Events
         </Link>
