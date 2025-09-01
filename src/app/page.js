@@ -1,9 +1,10 @@
 import FeaturedResourcesHeading from "@/components/ui/featured-resources-heading";
+import Greeting from "@/components/ui/greeting";
 
-export default function Home() {
+export default async function Home() {
   return (
     <div>
-      <h1 className="mb-4 text-4xl">Hello, user!</h1>
+      <Greeting />
 
       <FeaturedResourcesHeading resourceType="book" />
     </div>

@@ -1,8 +1,10 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+import { ApolloWrapper } from "@/components/apollo-wrapper";
 import Header from "@/components/ui/header";
 import { Provider } from "@/components/ui/provider";
+import { CurrentUserProvider } from "@/context/CurrentUserContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,12 +27,16 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Provider>
-          <main className="font-mono mx-auto container">
-            <Header />
-            {children}
-          </main>
-        </Provider>
+        <ApolloWrapper>
+          <CurrentUserProvider>
+            <Provider>
+              <main className="font-mono mx-auto container">
+                <Header />
+                {children}
+              </main>
+            </Provider>
+          </CurrentUserProvider>
+        </ApolloWrapper>
       </body>
     </html>
   );
