@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 import { ApolloWrapper } from "@/components/apollo-wrapper";
@@ -6,13 +6,7 @@ import Header from "@/components/ui/header";
 import { Provider } from "@/components/ui/provider";
 import { CurrentUserProvider } from "@/context/CurrentUserContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
@@ -25,12 +19,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistMono.className} antialiased`}
+        style={{ height: "auto", minHeight: "calc(100vh - 30px)" }}
       >
         <ApolloWrapper>
           <CurrentUserProvider>
             <Provider>
-              <main className="font-mono mx-auto container">
+              <main className="mx-auto container">
                 <Header />
                 {children}
               </main>
