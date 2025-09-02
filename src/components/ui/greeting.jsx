@@ -1,11 +1,9 @@
 "use client";
 
-import { useContext } from "react";
-
-import { CurrentUserConext } from "@/context/CurrentUserContext";
+import { useCurrentUser } from "@/context/CurrentUserContext";
 
 export default function Greeting() {
-  const { currentUser } = useContext(CurrentUserConext);
+  const { currentUser } = useCurrentUser();
 
   return (
     <>

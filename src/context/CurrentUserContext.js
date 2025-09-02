@@ -1,18 +1,10 @@
 "use client";
-import { gql } from "@apollo/client";
 import { useQuery } from "@apollo/client/react";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
-const USER_QUERY = gql`
-  query Query {
-    users(limit: 1) {
-      id
-      name
-    }
-  }
-`;
+import { USER_QUERY } from "@/lib/queries";
 
-export const CurrentUserConext = createContext();
+const CurrentUserConext = createContext();
 
 export const CurrentUserProvider = ({ children }) => {
   const { data } = useQuery(USER_QUERY);
@@ -26,9 +18,17 @@ export const CurrentUserProvider = ({ children }) => {
     }
   }, [data]);
 
+  const value = useMemo(() => {
+    return {
+      currentUser,
+    };
+  }, [currentUser]);
+
   return (
-    <CurrentUserConext.Provider value={{ currentUser }}>
+    <CurrentUserConext.Provider value={value}>
       {children}
     </CurrentUserConext.Provider>
   );
 };
+
+export const useCurrentUser = () => useContext(CurrentUserConext);

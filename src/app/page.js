@@ -1,7 +1,7 @@
 import FeaturedResourcesHeading from "@/components/ui/featured-resources-heading";
 import Greeting from "@/components/ui/greeting";
 
-export default async function Home() {
+export default function Home() {
   return (
     <div>
       <Greeting />
