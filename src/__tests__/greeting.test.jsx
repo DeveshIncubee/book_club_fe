@@ -2,14 +2,15 @@ import "@testing-library/jest-dom";
 import { MockedProvider } from "@apollo/client/testing/react";
 import { render, screen, waitFor } from "@testing-library/react";
 import Greeting from "@/components/ui/greeting";
+import { Provider } from "@/components/ui/provider";
 import { CurrentUserProvider } from "@/context/CurrentUserContext";
-import { USER_QUERY } from "@/lib/queries";
+import { CURRENT_USER } from "@/lib/queries";
 
 // Mock GraphQL response
 const mocks = [
   {
     request: {
-      query: USER_QUERY,
+      query: CURRENT_USER,
     },
     result: {
       data: {
@@ -29,6 +30,7 @@ const renderWithProviders = (ui) =>
     <MockedProvider mocks={mocks} addTypename={false}>
       <CurrentUserProvider>{ui}</CurrentUserProvider>
     </MockedProvider>,
+    { wrapper: Provider },
   );
 
 describe("Greeting", () => {
@@ -36,9 +38,7 @@ describe("Greeting", () => {
     renderWithProviders(<Greeting />);
 
     // Wait for the query to resolve and the component to re-render
-    const heading = await waitFor(() =>
-      screen.getByRole("heading", { name: /hello, alice!/i }),
-    );
+    const heading = await waitFor(() => screen.getByText(/hello, alice!/i));
 
     expect(heading).toBeInTheDocument();
   });

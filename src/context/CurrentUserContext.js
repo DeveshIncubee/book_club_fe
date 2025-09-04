@@ -2,12 +2,12 @@
 import { useQuery } from "@apollo/client/react";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
-import { USER_QUERY } from "@/lib/queries";
+import { CURRENT_USER } from "@/lib/queries";
 
 const CurrentUserConext = createContext();
 
 export const CurrentUserProvider = ({ children }) => {
-  const { data } = useQuery(USER_QUERY);
+  const { data } = useQuery(CURRENT_USER);
 
   const [currentUser, setCurrentUser] = useState({ name: "user" });
 
