@@ -21,6 +21,18 @@ export const FEATURED_BOOKS = gql`
   }
 `;
 
+export const ALL_BOOKS = gql`
+  query {
+    books(limit: 10) {
+      id
+      title
+      author
+      genre
+      publishedYear
+    }
+  }
+`;
+
 export const FEATURED_EVENTS = gql`
   query {
     events(limit: 4) {
