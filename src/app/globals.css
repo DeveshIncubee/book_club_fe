@@ -48,3 +48,7 @@ h6 {
     width: 90vw;
   }
 }
+
+.no-hover-underline:hover {
+  text-decoration: none;
+}
