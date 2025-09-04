@@ -6,6 +6,8 @@ import { useCurrentUser } from "@/context/CurrentUserContext";
 export default function UnAttendActionBar({ eventId, host, attendees }) {
   const { currentUser } = useCurrentUser();
 
+  console.log(eventId);
+
   return (
     <>
       {host?.id !== currentUser?.id ? (
