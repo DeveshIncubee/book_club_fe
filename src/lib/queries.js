@@ -54,6 +54,27 @@ export const ALL_BOOKS = gql`
   }
 `;
 
+export const GET_EVENT_BY_ID = gql`
+  query GetEventById($eventId: ID!) {
+    event(id: $eventId) {
+      id
+      title
+      description
+      location
+      host {
+        id
+        name
+      }
+      startsAt
+      endsAt
+      attendees {
+        id
+        name
+      }
+    }
+  }
+`;
+
 export const FEATURED_EVENTS = gql`
   query {
     events(limit: 4) {

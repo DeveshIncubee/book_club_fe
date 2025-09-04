@@ -28,7 +28,7 @@ export default function FeaturedEvent({ event }) {
           {event?.startsAt ? ` / ${format(event?.startsAt, "do LLL")}` : ""}
         </Text>
         <Button variant="outline" asChild>
-          <Link href={`/event/${event?.id}`} className="no-hover-underline">
+          <Link href={`/events/${event?.id}`} className="no-hover-underline">
             View Event <RiArrowRightLine />
           </Link>
         </Button>
