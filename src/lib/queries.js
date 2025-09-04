@@ -55,3 +55,26 @@ export const FEATURED_EVENTS = gql`
     }
   }
 `;
+
+export const ALL_EVENTS = gql`
+  query {
+    events(limit: 10) {
+      id
+      title
+      description
+      location
+      startsAt
+      endsAt
+      host {
+        id
+        name
+        email
+      }
+      attendees {
+        id
+        name
+        email
+      }
+    }
+  }
+`;
