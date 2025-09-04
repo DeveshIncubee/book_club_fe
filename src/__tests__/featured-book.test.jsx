@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import FeaturedBook from "@/components/ui/featured-book";
 import { Provider } from "@/components/ui/provider";
 
-describe("FeaturedBooks", () => {
+describe("FeaturedBook", () => {
   it("renders contents of the book", () => {
     const book = {
       id: "1",

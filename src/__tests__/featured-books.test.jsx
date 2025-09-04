@@ -58,7 +58,9 @@ const loadingMocks = [
       query: FEATURED_BOOKS,
     },
     result: {
-      books: [],
+      data: {
+        books: [],
+      },
     },
   },
 ];

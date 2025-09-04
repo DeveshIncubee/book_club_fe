@@ -20,3 +20,26 @@ export const FEATURED_BOOKS = gql`
     }
   }
 `;
+
+export const FEATURED_EVENTS = gql`
+  query {
+    events(limit: 4) {
+      id
+      title
+      description
+      location
+      startsAt
+      endsAt
+      host {
+        id
+        name
+        email
+      }
+      attendees {
+        id
+        name
+        email
+      }
+    }
+  }
+`;
