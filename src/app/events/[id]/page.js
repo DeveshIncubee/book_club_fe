@@ -68,27 +68,29 @@ export default async function EventDetailPage({ params }) {
 
       <Text>{description}</Text>
 
-      {attendees?.length > 0 ? (
-        <VStack alignItems="stretch" gap="4" w="full">
-          <Separator width="full" />
+      {attendees?.length > 0
+        ? <VStack alignItems="stretch" gap="4" w="full">
+            <Separator width="full" />
 
-          <VStack alignItems="start" gap="4">
-            <h3 style={{ fontSize: 24 }}>Attendees ({attendees?.length})</h3>
-            {attendees?.map((attendee, index) => (
-              <VStack key={`attendee-${index + 1}`} alignItems="start" gap="4">
-                <HStack alignItems="center" gap="4">
-                  <Avatar.Root variant="subtle">
-                    <Avatar.Fallback name={attendee?.name} />
-                  </Avatar.Root>
-                  <Text style={{ fontSize: 18 }}>{attendee?.name}</Text>
-                </HStack>
-              </VStack>
-            ))}
+            <VStack alignItems="start" gap="4">
+              <h3 style={{ fontSize: 24 }}>Attendees ({attendees?.length})</h3>
+              {attendees?.map((attendee, index) => (
+                <VStack
+                  key={`attendee-${index + 1}`}
+                  alignItems="start"
+                  gap="4"
+                >
+                  <HStack alignItems="center" gap="4">
+                    <Avatar.Root variant="subtle">
+                      <Avatar.Fallback name={attendee?.name} />
+                    </Avatar.Root>
+                    <Text style={{ fontSize: 18 }}>{attendee?.name}</Text>
+                  </HStack>
+                </VStack>
+              ))}
+            </VStack>
           </VStack>
-        </VStack>
-      ) : (
-        <div />
-      )}
+        : <div />}
       <Box p={4} />
     </VStack>
   );
