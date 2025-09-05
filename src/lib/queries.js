@@ -148,3 +148,32 @@ export const CREATE_REVIEW = gql`
     }
   }
 `;
+
+export const ATTEND_EVENT = gql`
+  mutation AttendEvent($userId: ID!, $eventId: ID!) {
+    attendEvent(input: { userId: $userId, eventId: $eventId }) {
+      attendee {
+        id
+        user {
+          id
+          name
+        }
+      }
+      errors
+    }
+  }
+`;
+
+export const UNATTEND_EVENT = gql`
+  mutation UnttendEvent($userId: ID!, $eventId: ID!) {
+    unattendEvent(input: { userId: $userId, eventId: $eventId }) {
+      attendee {
+        id
+        user {
+          id
+        }
+      }
+      errors
+    }
+  }
+`;
