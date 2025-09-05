@@ -200,3 +200,30 @@ export const CREATE_BOOK = gql`
     }
   }
 `;
+
+export const CREATE_EVENT = gql`
+  mutation CreateEvent(
+    $title: String!
+    $description: String!
+    $location: String!
+    $userId: ID!
+    $startsAt: ISO8601DateTime!
+    $endsAt: ISO8601DateTime!
+  ) {
+    createEvent(
+      input: {
+        title: $title
+        description: $description
+        location: $location
+        userId: $userId
+        startsAt: $startsAt
+        endsAt: $endsAt
+      }
+    ) {
+      event {
+        id
+      }
+      errors
+    }
+  }
+`;
