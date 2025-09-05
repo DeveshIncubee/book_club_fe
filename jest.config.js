@@ -11,6 +11,9 @@ const config = {
   coverageProvider: "v8",
   // testEnvironment: "jsdom",
   testEnvironment: "<rootDir>/JSDOMEnvironmentPatch.js",
+  moduleNameMapper: {
+    "^@/(.*)$": "<rootDir>/src/$1",
+  },
 
   setupFilesAfterEnv: ["<rootDir>/setupTests.js"],
 };
