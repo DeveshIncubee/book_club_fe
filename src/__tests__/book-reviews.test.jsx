@@ -72,7 +72,7 @@ describe("BookReviews", () => {
   it("renders skeleton when loading", () => {
     renderWithProviders(mocks, []);
 
-    const skeleton = screen.getByTestId("my-review-skeleton");
+    const skeleton = screen.getByTestId("reviews-skeleton");
     expect(skeleton).toBeInTheDocument();
   });
 

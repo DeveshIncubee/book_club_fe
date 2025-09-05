@@ -35,7 +35,7 @@ export default function BookReviews({ reviews }) {
       <VStack
         alignItems="stretch"
         gap="4"
-        data-testid={`my-review-skeleton`}
+        data-testid={`reviews-skeleton`}
         width="full"
       >
         <Separator width="full" />

@@ -31,7 +31,7 @@ export default function ReviewForm({ userId, bookId, setMyReview }) {
   }, [data, setMyReview]);
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} data-testid="review-form">
       <Stack gap="4" align="flex-start" maxWidth={{ base: "full", md: "3/4" }}>
         <Field.Root invalid={!!errors.rating}>
           <RatingGroup.Root
