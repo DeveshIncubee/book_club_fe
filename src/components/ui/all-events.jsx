@@ -30,13 +30,7 @@ export default function AllEvents() {
   }, [data]);
 
   return (
-    <Flex
-      wrap="wrap"
-      justifyContent="space-between"
-      alignItems="stretch"
-      gap="10"
-      mt="3"
-    >
+    <Flex wrap="wrap" alignItems="stretch" gap="10" mt="3">
       {events?.length > 0 ? (
         events?.map((event, index) => (
           <Event key={`event-${index + 1}`} event={event} />
