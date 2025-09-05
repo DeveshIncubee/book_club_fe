@@ -44,7 +44,7 @@ export const FEATURED_BOOKS = gql`
 
 export const ALL_BOOKS = gql`
   query {
-    books(limit: 10) {
+    books(limit: 40) {
       id
       title
       author
@@ -172,6 +172,29 @@ export const UNATTEND_EVENT = gql`
         user {
           id
         }
+      }
+      errors
+    }
+  }
+`;
+
+export const CREATE_BOOK = gql`
+  mutation CreateBook(
+    $title: String!
+    $author: String!
+    $genre: String!
+    $publishedYear: Int!
+  ) {
+    createBook(
+      input: {
+        title: $title
+        author: $author
+        genre: $genre
+        publishedYear: $publishedYear
+      }
+    ) {
+      book {
+        id
       }
       errors
     }
