@@ -30,13 +30,7 @@ export default function AllBooks() {
   }, [data]);
 
   return (
-    <Flex
-      wrap="wrap"
-      justifyContent="space-between"
-      alignItems="stretch"
-      gap="10"
-      mt="3"
-    >
+    <Flex wrap="wrap" alignItems="stretch" gap="10" mt="3">
       {books?.length > 0 ? (
         books?.map((book, index) => (
           <Book key={`book-${index + 1}`} book={book} />

@@ -3,6 +3,7 @@
 import {
   HStack,
   RatingGroup,
+  Separator,
   Skeleton,
   SkeletonText,
   Text,
@@ -18,7 +19,7 @@ export default function BookReviews({ reviews }) {
 
   useLayoutEffect(() => {
     let timeout;
-    if (reviews && reviews?.length > 0) {
+    if (reviews) {
       setFilteredReviews(
         reviews?.filter((review) => review?.user?.id !== currentUser?.id),
       );
@@ -37,14 +38,22 @@ export default function BookReviews({ reviews }) {
         data-testid={`my-review-skeleton`}
         width="full"
       >
+        <Separator width="full" />
+
         <SkeletonText noOfLines={3} />
         <Skeleton height="140px" />
       </VStack>
     );
   }
 
+  if (filteredReviews?.length === 0) {
+    return null;
+  }
+
   return (
     <VStack alignItems="start" gap="4">
+      <Separator width="full" />
+
       <h3 style={{ fontSize: 24 }}>Other Users' Reviews</h3>
       {filteredReviews?.map((review, index) => (
         <VStack key={`review-${index + 1}`} alignItems="start" gap="4">

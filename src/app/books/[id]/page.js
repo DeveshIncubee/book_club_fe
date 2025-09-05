@@ -60,8 +60,6 @@ export default async function BookDetailPage({ params }) {
 
       <MyReview bookId={id} reviews={reviews} />
 
-      <Separator width="full" />
-
       <BookReviews reviews={reviews} />
 
       <Box p={4} />

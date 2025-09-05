@@ -19,7 +19,7 @@ export default function MyReview({ bookId, reviews }) {
 
   useLayoutEffect(() => {
     let timeout;
-    if (reviews && reviews?.length > 0) {
+    if (reviews) {
       const review = reviews?.find(
         (review) => review?.user?.id === currentUser?.id,
       );
