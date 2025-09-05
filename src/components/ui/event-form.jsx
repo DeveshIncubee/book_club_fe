@@ -96,7 +96,7 @@ export default function EventForm() {
           <Field.ErrorText>{errors.endsAt?.message}</Field.ErrorText>
         </Field.Root>
 
-        <Button type="submit" loading={loading}>
+        <Button type="submit" loading={loading} disabled={!currentUser?.id}>
           Submit
         </Button>
       </Stack>
